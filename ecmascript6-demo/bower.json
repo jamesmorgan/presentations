@@ -1,0 +1,24 @@
+{
+  "name": "ecmascript6-demo",
+  "version": "0.0.1",
+  "authors": [
+    "James Morgan <james.morgan.e@googlemail.com>"
+  ],
+  "description": "Demo samples Of ECMA Script 6",
+  "license": "MIT",
+  "homepage": "http://www.morgan-design.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "traceur": "~0.0.49",
+    "traceur-runtime": "~0.0.49",
+    "requirejs": "~2.1.14"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ecmascript6-demo",
+  "version": "0.0.1",
+  "description": "ECMAScript 6 play ground",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.5",
+    "gulp-es6-module-transpiler": "^0.1.2",
+    "gulp-jshint": "^1.6.3",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-traceur": "^0.7.0",
+    "gulp-util": "^2.2.19",
+    "jshint-stylish": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesmorgan/presentations/ecmascript6-demo"
+  },
+  "author": "James Morgan",
+  "license": "MIT"
+}
