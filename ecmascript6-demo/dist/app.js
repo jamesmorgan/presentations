@@ -1,12 +1,14 @@
-define(['./module-demo/arrays-utils'], function($__0) {
+define(['./module-demo/logger', './module-demo/arrays-utils'], function($__0,$__1) {
   "use strict";
   if (!$__0 || !$__0.__esModule)
     $__0 = {'default': $__0};
-  var $__1 = $traceurRuntime.assertObject($__0),
-      Logger = $__1.Logger,
-      merge = $__1.merge,
-      uppercaseArray = $__1.uppercaseArray,
-      evens = $__1.evens;
+  if (!$__1 || !$__1.__esModule)
+    $__1 = {'default': $__1};
+  var Logger = $traceurRuntime.assertObject($__0).Logger;
+  var $__2 = $traceurRuntime.assertObject($__1),
+      merge = $__2.merge,
+      uppercaseArray = $__2.uppercaseArray,
+      evens = $__2.evens;
   var array1 = ['a', 'b', 'c', 'd'];
   var array2 = ['e', 'f', 'g', 'h'];
   var logger = new Logger('app-logger', true);

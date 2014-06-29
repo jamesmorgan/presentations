@@ -14,7 +14,7 @@
     "quotmark"      : true, // true = flags mixed quotes '' ""
     "predef"        : [     // declare globals to consider as defined, other than those defined in Environment section
         "_",
-        "App", "angular",
+        "App", "angular", "as",
         "describe", "expect", "assert", "beforeEach", "afterEach"
     ],
     "unused"        : true, // true = flag unused variables

@@ -1,5 +1,20 @@
 "use strict";
 
+/**
+ * Object literals
+ */
+// Old shcool ECMAScript 5+ version
+var home = "brazil";
+var away = "holland";
+var oldGame ={
+    home: home,
+    away: away
+};
+console.log(`Winners ${oldGame.away}`); // prints 'holland'
+
+// New ECMAScript 6+ way
+var newGame = { home, away }; // fields are given implicit values
+console.log(`Losers ${newGame.home}`); // prints 'brazil'
 
 /**
  * Default Params & String Template

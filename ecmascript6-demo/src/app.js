@@ -1,5 +1,7 @@
 
-import { Logger, merge, uppercaseArray, evens } from './module-demo/arrays-utils';
+
+import { Logger } from './module-demo/logger';
+import { merge, uppercaseArray, evens } from  './module-demo/arrays-utils';
 
 var array1 = ['a','b','c','d'];
 var array2 = ['e','f','g','h'];

@@ -2,6 +2,18 @@ define([], function() {
   "use strict";
   "use strict";
   var $__5 = $traceurRuntime.initGeneratorFunction(count);
+  var home = "brazil";
+  var away = "holland";
+  var oldGame = {
+    home: home,
+    away: away
+  };
+  console.log(("Winners " + oldGame.away));
+  var newGame = {
+    home: home,
+    away: away
+  };
+  console.log(("Losers " + newGame.home));
   var helloWorld = function helloWorld() {
     var alterText = arguments[0] !== (void 0) ? arguments[0] : "Jimbob";
     return (alterText + " says hello!");
