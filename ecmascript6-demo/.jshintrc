@@ -1,6 +1,5 @@
 {
     // Enforcing options
-
     "bitwise"       : true, // true = flag bitwise operators which is probably a mistake
     "camelcase"     : true, // true = require camelCase for all variable names
     "curly"         : true, // require curly brackets, even for blocks with only one statement
@@ -49,14 +48,15 @@
     // Relaxing options
 
     "debug"         : false, // true = ignore "debugger" statements, I never user this
-    "esnext"        : true, // true = tells JSHint that your code uses ECMAScript 6 specific syntax
+    "esnext"        : true,  // true = tells JSHint that your code uses ECMAScript 6 specific syntax
     "funcscope"     : false, // true = suppresses warnings about accessing variables defined out of scope
-    "gcl"           : true, // true = compatible with Google Closure Compiler
+    "gcl"           : true,  // true = compatible with Google Closure Compiler
     "globalstrict"  : false, // true = suppress global var warnings, being ignored?
     "iterator"      : false, // true = suppresses warnings about the __iterator__ property
     "lastsemic"     : false, // true = suppresses warnings about missing semicolons for the last statement in a one-line block
     "laxcomma"      : false, // true =  suppresses warnings about comma-first coding style
-    "maxerr"        : 25, // set the maximum amount of warnings for jshint
+    "passfail"      : false, // Stop on first error.
+    "maxerr"        : 100,   // set the maximum amount of warnings for jshint
     "moz"           : false, // true = tells JSHint that your code uses Mozilla JavaScript extensions
     "multistr"      : false, // true = suppresses warnings about multi-line strings
     "notypeof"      : false, // true = suppresses warnings about the use of script-targeted URLs
@@ -65,8 +65,8 @@
     "sub"           : false, // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
     "validthis"     : false, // true = suppresses warnings about possible strict violations
     "noyield"       : false, // true = suppresses warnings about generator functions with no yield statement in them
-    "nomen"         : true,   // Prohibit use of initial or trailing underbars in names.
-    "onevar"        : false,  // Allow only one `var` statement per function.
+    "nomen"         : true,  // Prohibit use of initial or trailing underbars in names.
+    "onevar"        : false, // Allow only one `var` statement per function.
 
     // Environments
     // These options pre-define global variables that are exposed by popular JavaScript libraries and runtime environments—such as browser or node.js.

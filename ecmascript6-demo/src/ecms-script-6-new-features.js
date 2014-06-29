@@ -3,10 +3,10 @@
 /**
  * Object literals
  */
-// Old shcool ECMAScript 5+ version
+// Old school ECMAScript 5+ version
 var home = "brazil";
 var away = "holland";
-var oldGame ={
+var oldGame = {
     home: home,
     away: away
 };
@@ -87,9 +87,9 @@ function makeIterator(array){
         }
     }
 }
-var it = makeIterator(["yo", "ya"]);
-console.log(it.next().value); // "yo"
-console.log(it.next().value); // "ya"
+var it = makeIterator(["angular", "js"]);
+console.log(it.next().value); // "angular"
+console.log(it.next().value); // "js"
 console.log(it.next().done);  // true
 
 /**
