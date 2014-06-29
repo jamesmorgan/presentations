@@ -60,7 +60,7 @@ define([], function() {
         } : {done: true};
       }};
   }
-  var it = makeIterator(["yo", "ya"]);
+  var it = makeIterator(["angular", "js"]);
   console.log(it.next().value);
   console.log(it.next().value);
   console.log(it.next().done);
