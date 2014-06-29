@@ -1,6 +1,5 @@
 "use strict";
 
-// import {merge, uppercaseArray, odds, evens} from "./module-demo/arrays-utils.js";
 
 /**
  * Default Params & String Template
@@ -23,15 +22,6 @@ console.log(d.toString());
 
 var p = new Labrador("Brown", "Big");
 console.log(p.toString());
-
-//var oddNumbers = [1,2,3,4,5,6,7,8,9,10].filter( i => {
-//    return i % 2
-//}); // [2,4,6,8,10]
-
-//var nums = [1,2,3,4,5,6,7,8,9,10];
-//
-//console.log(odds(nums));
-//console.log(evens(nums));
 
 /**
  * Numeric Literals
@@ -99,7 +89,7 @@ var counter = count();
 console.log(counter.next()); // {value: 1, done: false}
 console.log(counter.next()); // {value: 2, done: false}
 console.log(counter.next()); // {value: 3, done: false}
-console.log(counter.next()); // {done: true}
+console.log(counter.next()); // {value: undefined, done: true}
 
 /**
  * Array Comprehension

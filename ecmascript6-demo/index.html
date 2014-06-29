@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <title>Test Runners!</title>
 
-    <!--<script src="bower_components/requirejs/require.js"></script>-->
     <!--<script src="bower_components/traceur-runtime/traceur-runtime.js"></script>-->
+    <!--<script src="bower_components/es6-module-loader/dist/es6-module-loader.js"></script>-->
+
+    <script src="bower_components/momentjs/moment.js"></script>
 
     <script src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"></script>
     <script src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"></script>
+
+    <script>
+    // System.import('src/app')
+    </script>
 
     <script>
         traceur.options.experimental = true;
@@ -19,13 +25,13 @@
     <!-- Class inheritance -->
     <script type="module" src="src/class-demo/animals.js"></script>
 
+    <script type="module" src="src/app.js"></script>
+
     <!-- Demos -->
     <!--<script type="module" src="src/module-demo/arrays-utils.js"></script>-->
+    <!--<script type="module" src="src/module-demo/arrays-utils-demo.js"></script>-->
 
     <script type="module" src="src/ecms-script-6-new-features.js"></script>
-
-    <!--<script src="src/module-demo/arrays-utils.js"  type="text/traceur"></script>-->
-    <!--<script src="src/module-demo/arrays-utils-demo.js"  type="text/traceur"></script>-->
 
 </head>
 <body>

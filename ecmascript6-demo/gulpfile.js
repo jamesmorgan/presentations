@@ -43,6 +43,5 @@ gulp.task('cleanDistFolder', function() {
         .on('error', gutil.log);
 });
 
-
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['watch', 'cleanDistFolder', 'lint', 'traceur-compile']);
