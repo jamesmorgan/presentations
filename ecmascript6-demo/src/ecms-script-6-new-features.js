@@ -118,12 +118,45 @@ var alternative = numbers.map(i => { return i * 2; });
 console.log(alternative); // prints 3,12,17,24
 
 /**
- * Array Filtering
+ * Array Filtering - ECMAScript 5
  */
 var evens = numbers.filter( i => {
     return i % 2 === 0;
 });
 console.log(evens); // prints 3,17
+
+/**
+ * Array Searching - some() - ECMAScript 5 - tests if some element in the array match
+ */
+function canHaveADrink(element, index, array) {
+    return (element >= 18);
+}
+
+var canDrink = [12, 15, 17, 20].some(canHaveADrink); // prints true
+console.log(canDrink);
+canDrink = [12, 5, 8, 1, 4].some(canHaveADrink); // prints false
+console.log(canDrink);
+
+/**
+ * Array Searching - every() - ECMAScript 5 - tests all elements in the array
+ */
+var canDrink = [12, 15, 17, 20].every(canHaveADrink); // prints false
+console.log(canDrink);
+canDrink = [99, 54, 18, 130, 44].every(canHaveADrink); // prints true
+console.log(canDrink);
+
+/**
+ * Array Reduction - reduce() - ECMAScript 6 - allows the result of each reduction to be use in the next one
+ */
+var total = [0, 1, 2, 3].reduce(function(a, b) {
+    return a + b;
+});
+// total == 6
+
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+    return a.concat(b);
+});
+// flattened is [0, 1, 2, 3, 4, 5]
 
 /**
  * Spreading -> allows combine multiple arrays more easily.

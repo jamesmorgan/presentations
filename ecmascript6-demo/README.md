@@ -2,6 +2,11 @@
 
 * Accompanying presentation - https://docs.google.com/presentation/d/1vp6YLhK-9-DeNvK-k6aIZU2xJA5wQG-LUm2mvUmEGyc/edit?usp=sharing
 
+### TODO
+* clean code
+* Add code to README oand links
+* finish presentation
+
 ### What inside
 * Object literals
 * String templates
@@ -15,7 +20,9 @@
 * Generators
 * `yield` key word
 * Array Comprehension
-* Array Filtering
+* Array Filtering - ECMAScript 5
+* Array Searching - `some()`, `every()` - ECMAScript 5
+* Array Reducing `reduce()`
 * Array merging via spreading `...`
 * Rest arguments - varargs `...`
 * Sets, Maps
@@ -23,8 +30,5 @@
 
 ### Transpiling
 
-run `gulp` to transpile files iun ECMAScript 5 mode
-
-### TODO
-* clean code
-* finish presentation
+* run `gulp` to transpile files iun ECMAScript 5 mode
+* Transipled ECMAScript 5.1+ compliant JS and source maps are generated to `dist`
