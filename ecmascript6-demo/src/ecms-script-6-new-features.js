@@ -4,17 +4,23 @@
  * Object literals
  */
 // Old school ECMAScript 5+ version
-var home = "brazil";
-var away = "holland";
+var home = "Germany";
+var away = "Argentina";
 var oldGame = {
     home: home,
     away: away
 };
-console.log(`Winners ${oldGame.away}`); // prints 'holland'
+console.log(`Winners ${oldGame.away}`); // prints 'Winners Argentina'
 
-// New ECMAScript 6+ way
+// New ECMAScript 6 way
 var newGame = { home, away }; // fields are given implicit values
-console.log(`Losers ${newGame.home}`); // prints 'brazil'
+console.log(`Losers ${newGame.home}`); // prints 'Losers Germany'
+
+
+
+
+
+
 
 /**
  * Default Params & String Template
@@ -23,8 +29,15 @@ var helloWorld = function helloWorld(alterText = "Jimbob"){
     return `${alterText} says hello!`;
 };
 
-console.log(helloWorld());
-console.log(helloWorld("Jammy"));
+console.log(helloWorld()); // prints 'Jimbo says hello!'
+console.log(helloWorld("Jammy")); // prints 'Jammy says hello!'
+
+
+
+
+
+
+
 
 /**
  * Classes with inheritance - Holy Cow this cant be real!
@@ -38,6 +51,49 @@ console.log(d.toString());
 var p = new Labrador("Brown", "Big");
 console.log(p.toString());
 
+
+
+
+
+
+/**
+ * Sets
+ */
+var s = new Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
+console.log(s); // prints [1, 3, 4, 2, 17]
+
+/**
+ * Maps -> new API for accessing and creating maps - set,has,add,delete
+ */
+let m = new Map();
+console.log(m.size);  // 0
+m.set("a", 1);
+m.has("a");           // true
+m.get("a");           // 1
+console.log(m.size);  // 1
+m.delete("a");        // true
+console.log(m.size);  // 0
+
+/**
+ * Better for loops, for of instead of for in
+ */
+var colours = ["red", "blue"];
+colours.createDate = Date.now();
+
+for (let name in colours) {
+    console.log(name); // "0, 1, createDate" (the property name)
+    // usually fix this with
+//    if(colours.hasOwnProperty(name)){
+//        console.log(colours[name]); // prints "red, blue", DateObj
+//    }
+}
+for (let word of colours) {
+    console.log(word); // "red, blue" (only the values)
+}
+
+
+
+
 /**
  * Numeric Literals
  */
@@ -46,6 +102,11 @@ console.log(`Binary: ${binary}`); // [0, 1, 3]);
 
 var octal = [0o0, 0o1, 0o10, 0o77];
 console.log(`Octal: ${octal}`); //([0, 1, 8, 63]);
+
+
+
+
+
 
 /**
  * TODO not working correctly
@@ -64,6 +125,12 @@ const changable = "Don't be stupid!";
 // Throws error -> prevent variable leakage
 //console.log(UNCHANGEBALE); // they follow the same scoping rule as normal JS
 
+
+
+
+
+
+
 // Using let makes it easier to create correctly scoped closures and for loops
 let a = "smalls";
 {
@@ -72,9 +139,35 @@ let a = "smalls";
 }
 console.log(a); // prints out "smalls"
 
+
+
+
+
+
+
+/**
+ * Generators and yield keyword
+ */
+function* count() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+var counter = count();
+console.log(counter.next()); // {value: 1, done: false}
+console.log(counter.next()); // {value: 2, done: false}
+console.log(counter.next()); // {value: 3, done: false}
+console.log(counter.next()); // {value: undefined, done: true}
+
+
+
+
+
+
 /**
  * Iterators - has changed a few times!
- * An iterator has a method called next. This method returns an object with two properties: value (any value) and done (will be read as a boolean).
+ * An iterator has a method called next. 
+ *   This method returns an object with two properties: value (any value) and done (evaluated as boolean).
  */
 function makeIterator(array){
     var nextIndex = 0;
@@ -92,19 +185,12 @@ console.log(it.next().value); // "angular"
 console.log(it.next().value); // "js"
 console.log(it.next().done);  // true
 
-/**
- * Generators and yields -> think of it a pauseable return
- */
-function* count() {
-    yield 1;
-    yield 2;
-    yield 3;
-}
-var counter = count();
-console.log(counter.next()); // {value: 1, done: false}
-console.log(counter.next()); // {value: 2, done: false}
-console.log(counter.next()); // {value: 3, done: false}
-console.log(counter.next()); // {value: undefined, done: true}
+
+//////////////////////
+// Function fun...! //
+//////////////////////
+
+
 
 /**
  * Array Comprehension
@@ -118,45 +204,63 @@ var alternative = numbers.map(i => { return i * 2; });
 console.log(alternative); // prints 3,12,17,24
 
 /**
+ * Array Reduction - reduce() - allows the result of each reduction to be use in the next one
+ */
+// Make a re-useable function
+function adder(a, b) {
+    return a + b;
+}
+
+var total = [0, 1, 2, 3].reduce(adder);
+console.log(total); // prints '6'
+
+function joiner(a, b) {
+    return a.concat(b);
+}
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(joiner);
+console.lof(flattened); // flattened is [0, 1, 2, 3, 4, 5]
+
+
+
+
+
+
+/**
  * Array Filtering - ECMAScript 5
  */
-var evens = numbers.filter( i => {
-    return i % 2 === 0;
-});
+var evens = numbers.filter(i => { return i % 2 === 0; });
 console.log(evens); // prints 3,17
 
 /**
  * Array Searching - some() - ECMAScript 5 - tests if some element in the array match
  */
+// Create re-usable function
 function canHaveADrink(element, index, array) {
     return (element >= 18);
 }
 
-var canDrink = [12, 15, 17, 20].some(canHaveADrink); // prints true
-console.log(canDrink);
-canDrink = [12, 5, 8, 1, 4].some(canHaveADrink); // prints false
-console.log(canDrink);
+var canDrink = [12, 15, 17, 20].some(canHaveADrink);
+console.log(canDrink); // prints 'true' as someone can have a drink
+
+canDrink = [12, 5, 8, 1, 4].some(canHaveADrink); 
+console.log(canDrink); // prints 'false' as everyone is under age
 
 /**
  * Array Searching - every() - ECMAScript 5 - tests all elements in the array
  */
-var canDrink = [12, 15, 17, 20].every(canHaveADrink); // prints false
-console.log(canDrink);
-canDrink = [99, 54, 18, 130, 44].every(canHaveADrink); // prints true
-console.log(canDrink);
+var canDrink = [12, 15, 17, 20].every(canHaveADrink);
+console.log(canDrink); // prints 'false' as 1 or more people are under age
 
-/**
- * Array Reduction - reduce() - ECMAScript 6 - allows the result of each reduction to be use in the next one
- */
-var total = [0, 1, 2, 3].reduce(function(a, b) {
-    return a + b;
-});
-// total == 6
+canDrink = [99, 54, 18, 130, 44].every(canHaveADrink); 
+console.log(canDrink); // prints 'true' as everyone can drink
 
-var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
-    return a.concat(b);
-});
-// flattened is [0, 1, 2, 3, 4, 5]
+
+
+
+
+
+
+
 
 /**
  * Spreading -> allows combine multiple arrays more easily.
@@ -171,6 +275,8 @@ console.log(d1); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 var d2 = [0].concat(a1).concat(b1).concat([5]).concat(c1);
 console.log(d2); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 
+
+
 /**
  * Rest -> like varargs methods - an Array is populated with all trailing arg (never null or undefined)
  */
@@ -178,40 +284,6 @@ console.log(d2); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 function varargs(x, ...rest) {
     return rest.length;
 }
-console.log(varargs("a", 1,2,3,4,5,6)); // prints 6
-console.log(varargs("a")); // prints 0
+console.log(varargs("a", 1,2,3,4,5,6)); // prints '6'
+console.log(varargs("a")); // prints '0'
 
-/**
- * Sets
- */
-var s = new Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
-console.log(s); // prints [1, 3, 4, 2, 17]
-
-/**
- * Maps -> new API for accessing and creating maps - set,has,add,delete
- */
-let m = new Map();
-console.log(m.size); // 0
-m.set("a", 1);
-m.has("a");     // true
-m.get("a");     // 1
-console.log(m.size); // 1
-m.delete("a");  // true
-console.log(m.size); // 0
-
-/**
- * Better for loops, for of instead of for in
- */
-var colours = ["red", "blue"];
-colours.createDate = Date.now();
-
-for (let name in colours) {
-    console.log(name); // "0, 1, createDate" (the property name)
-    // usually fix this with
-//    if(colours.hasOwnProperty(name)){
-//        console.log(colours[name]); // prints "red, blue", DateObj
-//    }
-}
-for (let word of colours) {
-    console.log(word); // "red, blue" (only the values)
-}

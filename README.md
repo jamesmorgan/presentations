@@ -1,7 +1,7 @@
 presentations
 =============
 
-Various dumping group for presentations
+Various dumping ground for presentations
 
 #### Content
 
