@@ -11,14 +11,6 @@ class Animal {
     sound() {
         return "Sqeak";
     }
-
-<<<<<<< HEAD:ecmascript6-demo/code/src/class-demo/animals.js
-//    var sound = function() {
-//        return "Sqeak";
-//    }
-
-=======
->>>>>>> master:ecmascript6-demo/code/src/class-demo/animals.js
     move() {
         return "Running";
     }
