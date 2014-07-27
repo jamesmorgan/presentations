@@ -29,8 +29,8 @@ var helloWorld = function helloWorld(alterText = "Jimbob"){
     return `${alterText} says hello!`;
 };
 
-console.log(helloWorld()); // prints 'Jimbo says hello!'
-console.log(helloWorld("Jammy")); // prints 'Jammy says hello!'
+console.log(helloWorld()); // prints 'Jimbob says hello!'
+console.log(helloWorld("Billy")); // prints 'Billy says hello!'
 
 
 
