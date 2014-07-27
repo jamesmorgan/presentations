@@ -1,6 +1,7 @@
 ## ECMAScript 6 by example
 
 * Accompanying presentation
+<<<<<<< HEAD
  * Slides (reveal.js) - http://jamesmorgan.github.io/presentations/ecmascript6-demo/slides/ 
  * Google Slides - https://docs.google.com/presentation/d/1vp6YLhK-9-DeNvK-k6aIZU2xJA5wQG-LUm2mvUmEGyc/edit?usp=sharing
 
@@ -8,6 +9,10 @@
 * clean code
 * Add code to README oand links
 * finish presentation
+=======
+ * Reveal JS - http://jamesmorgan.github.io/presentations/ecmascript6-demo/slides/index.html
+ * Google Slides - https://docs.google.com/presentation/d/1vp6YLhK-9-DeNvK-k6aIZU2xJA5wQG-LUm2mvUmEGyc/edit?usp=sharing
+>>>>>>> master
 
 ### What inside
 * Object literals

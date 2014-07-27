@@ -143,8 +143,11 @@ console.log(a); // prints out "smalls"
 
 
 
+<<<<<<< HEAD:ecmascript6-demo/code/src/ecms-script-6-new-features.js
 
 
+=======
+>>>>>>> master:ecmascript6-demo/code/src/ecms-script-6-new-features.js
 /**
  * Generators and yield keyword
  */
