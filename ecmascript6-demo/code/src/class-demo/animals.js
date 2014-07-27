@@ -4,7 +4,7 @@ class Animal {
     constructor(){
         this.type = "Animal";
         this.colour = "Brown";
-        this.size = "Medium";
+        this.size = "Big";
     }
 
     // Method Definition Shorthand
@@ -12,23 +12,20 @@ class Animal {
         return "Sqeak";
     }
 
-//    var sound = function() {
-//        return "Sqeak!";
-//    }
-
     move() {
         return "Running";
     }
 
     toString() {
-        // Demonstration of String templating, this is possible with CoffeeScript and libraries such as handlebar.js, angular bindings etc
+        // Demonstration of String templating
+        // This is possible with CoffeeScript and libraries such as handlebar.js etc
         return `The ${this.size} ${this.colour} ${this.type} can ${this.sound()} and ${this.move()}`;
     }
 }
 
 class Bird extends Animal {
 
-    // Implicit constructor that itself has an implicit super call if not specified
+    // Implicit constructor that itself has an implicit super() call if not specified
     constructor(colour, size = "Tiny") {
         this.type = "Bird";
         this.colour = colour;
@@ -54,6 +51,7 @@ class Dog extends Animal {
 class Labrador extends Dog {
 
     constructor(colour, size) {
+        // Example of none implicit super() call
         super(colour, size, "Labrador")
     }
 
