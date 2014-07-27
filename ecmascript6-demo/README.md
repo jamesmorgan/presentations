@@ -1,11 +1,8 @@
 ## ECMAScript 6 by example
 
-* Accompanying presentation - https://docs.google.com/presentation/d/1vp6YLhK-9-DeNvK-k6aIZU2xJA5wQG-LUm2mvUmEGyc/edit?usp=sharing
-
-### TODO
-* clean code
-* Add code to README oand links
-* finish presentation
+* Accompanying presentation
+ * Reveal JS - http://jamesmorgan.github.io/presentations/ecmascript6-demo/slides/index.html
+ * Google Slides - https://docs.google.com/presentation/d/1vp6YLhK-9-DeNvK-k6aIZU2xJA5wQG-LUm2mvUmEGyc/edit?usp=sharing
 
 ### What inside
 * Object literals

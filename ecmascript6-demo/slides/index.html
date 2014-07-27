@@ -201,7 +201,6 @@
                         <li>Modules - (import/export) - classes with extensibility</li>
                         <li>Inbuilt Promises</li>
                         <li>Object.observe() - this will change lots of frameworks</li>
-                        <li>Jumping on the functional band wagon</li>
                     </ul>
                 </section>
 
@@ -219,25 +218,25 @@ var oldGame = {
     home: home,
     away: away
 };
-console.log(`Winners ${oldGame.away}`); // prints 'Winners Argentina'
+console.log(`Winners ${oldGame.home}`); // prints 'Winners Germany'
 
 // New ECMAScript 6 way
 var newGame = { home, away }; // fields are given implicit values
-console.log(`Losers ${newGame.home}`); // prints 'Losers Germany'
+console.log(`Losers ${newGame.away}`); // prints 'Losers Argentina'
 					</code></pre>
 				</section>
 
                 <section>
                     <h2>Default Params</h2>
 					<pre><code data-trim contenteditable>
-var helloWorld = function helloWorld(alterText = "Jimbob"){
-    return `${alterText} says hello!`;
+var helloWorld = function helloWorld(name = "Jimbob"){
+    return `${name} says hello!`;
 };
 console.log(helloWorld()); // prints 'Jimbob says hello!'
 console.log(helloWorld("Billy")); // prints 'Billy says hello!'
                     </code></pre>
                     <h2>Varargs</h2>
-                    <p>Also called rest params - an Array is populated with all trailing arg (never null or undefined)</p>
+                    <p>Also called rest params - an Array is populated with all trailing args (never null or undefined)</p>
 					<pre><code data-trim contenteditable>
 // Only applicable to use ... as last argument of method
 function varargs(x, ...rest) {
@@ -273,7 +272,7 @@ console.log(m.size);  // 0
 					<pre><code data-trim contenteditable>
 var colours = ["red", "blue"];
 colours.createDate = Date.now()
-for (let name in colours) {
+for (var name in colours) {
     console.log(name); // "0, 1, createDate" (the property name)
     // usually fix this with
     //if(colours.hasOwnProperty(name)){
@@ -312,7 +311,12 @@ console.log(`Octal: ${octal}`); //([0, 1, 8, 63]);
 
                 <section>
                     <h2>Generators and yield keyword</h2>
-                    <p>Notice the after function*</p>
+                    <blockquote>
+                        An Iterator is an object that knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.
+                    </blockquote>
+                    <blockquote>
+                        Each call to the generator-iterator's next() method will execute the body of the function up to the next yield expression and return its result
+                    </blockquote>
 					<pre><code data-trim contenteditable>
 function* count() {
     yield 1;
@@ -325,29 +329,35 @@ console.log(counter.next()); // {value: 2, done: false}
 console.log(counter.next()); // {value: 3, done: false}
 console.log(counter.next()); // {value: undefined, done: true}
                     </code></pre>
+                    <p>Notice the after function*</p>
                 </section>
 
 
                 <section>
                     <h2>Custom Iterators</h2>
-                    <p>Syntax has changed several times!</p>
-                    <p>An iterator has a method called next.</p>
-                    <p>This method returns an object with two properties: value (any value) and done (evaluated as boolean).</p>
+                    <p>Syntax has changed several times so expect changes in the future.</p>
+                    <blockquote>
+                        Generators enable lazy computation of sequences, with items calculated on-demand as they are needed.
+                    </blockquote>
 					<pre><code data-trim contenteditable>
-function makeIterator(array){
-    var nextIndex = 0;
-    return {
-        next: function(){
-            return nextIndex < array.length ?
-                {value: array[nextIndex++], done: false} :
-                {done: true};
-        }
+function fibonacci(){
+    var fn1 = 1;
+    var fn2 = 1;
+    while (1){
+        var current = fn2;
+        fn2 = fn1;
+        fn1 = fn1 + current;
+        yield current;
     }
 }
-var it = makeIterator(["angular", "js"]);
-console.log(it.next().value); // "angular"
-console.log(it.next().value); // "js"
-console.log(it.next().done);  // true
+var sequence = fibonacci();
+print(sequence.next()); // 1
+print(sequence.next()); // 1
+print(sequence.next()); // 2
+print(sequence.next()); // 3
+print(sequence.next()); // 5
+print(sequence.next()); // 8
+print(sequence.next()); // 13
                     </code></pre>
                 </section>
 
@@ -382,7 +392,7 @@ function joiner(a, b) {
     return a.concat(b);
 }
 var flattened = [[0, 1], [2, 3], [4, 5]].reduce(joiner);
-console.lof(flattened); // flattened is [0, 1, 2, 3, 4, 5]
+console.log(flattened); // flattened is [0, 1, 2, 3, 4, 5]
                     </code></pre>
                 </section>
 
@@ -398,7 +408,7 @@ var c1 = [6, 7];
 var d1 = [0, ...a1, ...b1, 5, ...c1];
 console.log(d1); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 
-// Current equivalent
+// ES5 - Current equivalent
 var d2 = [0].concat(a1).concat(b1).concat([5]).concat(c1);
 console.log(d2); // prints [0, 1, 2, 3, 4, 5, 6, 7]
                     </code></pre>
@@ -406,6 +416,7 @@ console.log(d2); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 
                 <section>
                     <h2>Classes</h2>
+                    <p>Current ES6 proposed draft doesn't support public and private members - can be achieved in other ways</p>
 					<pre><code data-trim contenteditable>
 class Greeter {
     sayHi(name = 'Anonymous') {
@@ -539,88 +550,28 @@ console.log(p.toString());
                 </section>
 
 
+                <!--<section>-->
+                    <!--<h2></h2>-->
+					<!--<pre><code data-trim contenteditable>-->
+
+                    <!--</code></pre>-->
+                <!--</section>-->
+
+
                 <section>
-                    <h2></h2>
-					<pre><code data-trim contenteditable>
-
-                    </code></pre>
-                </section>
-
-
-                <section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
+					<h2>Using it in the wild?</h2>
+                    <ul>
+                        <li>Not fully supported yet</li>
+                        <li>FF and Chrome with the experimental flag turned on enables the most features</li>
+                        <li>Use a Transpiler to compile down to ES5. (see demo) - Google has one <a href="https://github.com/google/traceur-compiler" target="_blank">traceur-compiler</a></li>
+                        <li>Use a ECMAScript compiler!</li>
+                        <li>Look at Dart or TypeScript as alternatives until its supported better</li>
+                        <li>AngularJS 2.0 (2015) will use it by default</li>
+                    </ul>
 				</section>
 
 				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h1>Questions?</h1>
 				</section>
 
 			</div>
@@ -640,8 +591,10 @@ console.log(p.toString());
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                theme: "moon", // available themes are in /css/theme
+//				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
