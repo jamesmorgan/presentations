@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>ECMAScript 6 - The Future of JavaScript</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="ECMAScript 6 - The Future of JavaScript - Presentation">
+		<meta name="author" content="James Morgan - http://www.morgan-design.com">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -49,9 +49,12 @@
 					<p>
 						<small>Created by <a href="https://github.com/jamesmorgan" target="_blank">James Morgan</a> / <a href="http://twitter.com/jimbob_87" target="_blank">@jimbob_87</a></small>
 					</p>
-                    <h5>2009 - ECMAScript 5</h5>
-                    <h5>2011 - ECMAScript 5.1</h5>
+                    <h5>2009 - ES 5</h5>
+                    <h5>2011 - ES 5.1</h5>
                     <h5>2014 (Dec) - ES6</h5>
+                    <aside class="notes">
+                        Slated to arrive late this year...maybe? -
+                    </aside>
                 </section>
 
 				<section>
@@ -64,10 +67,13 @@
                     <blockquote>
                         The language is widely used for client-side scripting on the web...several well-known implementations such as JavaScript, JScript and ActionScript..
                     </blockquote>
-                    <h3>Stackoverflow</h3>
-                    <blockquote>
-                        Javascript is basically ECMAScript at it's core but builds upon it. Languages such as Actionscript, Javascript, JScript all use ECMAScript as its core.
-                    </blockquote>
+                    <!--<h3>Stackoverflow</h3>-->
+                    <!--<blockquote>-->
+                        <!--Javascript is basically ECMAScript at it's core but builds upon it. Languages such as Actionscript, Javascript, JScript all use ECMAScript as its core.-->
+                    <!--</blockquote>-->
+                    <aside class="notes">
+                        Stackoverflow - Javascript is basically ECMAScript at it's core but builds upon it. Languages such as Actionscript, Javascript, JScript all use ECMAScript as its core.
+                    </aside>
 				</section>
 
                 <section>
@@ -99,16 +105,19 @@
                         <li>Painful</li>
                         <li>Lacking in language features</li>
                         <li>Needing an upgrade</li>
+                        <li><a href="https://www.facebook.com/IHateJavascript" target="_blank">https://www.facebook.com/IHateJavascript</a></li>
                     </ul>
-                    <br />
-                    <br />
-                    <blockquote>
-                        CoffeeScript is the only thing that makes it bearable..UNTIL NOW!!!!
-                    </blockquote>
+                    <!--<blockquote>-->
+                        <!--CoffeeScript is the only thing that makes it bearable..UNTIL NOW!!!!-->
+                    <!--</blockquote>-->
+                    <aside class="notes">
+                        I've heard people say that CoffeeScript is the only thing that makes it bearable.
+                    </aside>
+                    <img src="images/javascript_the_good_parts.jpg">
                 </section>
 
 				<section>
-                    <h3>Whats New?</h3>
+                    <h3>Whats New IN ES 6 (Harmony)</h3>
                     <p>
                         Nothing unless you want it to be! - ES6 is fully compatible with ES5, you don't have to change a thing!
                     </p>
@@ -269,7 +278,7 @@ console.log(m.size);  // 0
 
 
                 <section>
-                    <h2>Better for loops with let and of</h2>
+                    <h2>Better for loops</h2>
 					<pre><code data-trim contenteditable>
 var colours = ["red", "blue"];
 colours.createDate = Date.now()
@@ -284,6 +293,11 @@ for (let word of colours) {
     console.log(word); // "red, blue" (only the values)
 }
                     </code></pre>
+
+                    <aside class="notes">
+                        Old School way and new way, notice the use of  'let' and 'of'
+                    </aside>
+
                     <h2>Bet scoping with let</h2>
                     <p>
                         Using let makes it easier to create correctly scoped closures and for loops
@@ -373,7 +387,16 @@ console.log(doubled); // prints 3,12,17,24
 // Can also be done as
 var alternative = numbers.map(i => { return i * 2; });
 console.log(alternative); // prints 3,12,17,24
+
+// Fat arrow equivalent
+var alternativeWay = numbers.map(function(i){
+    return i * 2;
+});
                     </code></pre>
+                    <aside class="notes">
+                        Similar to generators, a way of defining list creation.
+                        Also here is an example of fat arrow syntax, syntactical sugar only.
+                    </aside>
                 </section>
 
 
@@ -381,7 +404,7 @@ console.log(alternative); // prints 3,12,17,24
                     <h2>Array Reduction</h2>
                     <p>Allows the result of each reduction to be use in the next one</p>
 					<pre><code data-trim contenteditable>
-// Make a re-useable function
+// Make a reusable function
 function adder(a, b) {
     return a + b;
 }
@@ -409,7 +432,7 @@ var c1 = [6, 7];
 var d1 = [0, ...a1, ...b1, 5, ...c1];
 console.log(d1); // prints [0, 1, 2, 3, 4, 5, 6, 7]
 
-// ES5 - Current equivalent
+// ES5 - Current equivalent - messy
 var d2 = [0].concat(a1).concat(b1).concat([5]).concat(c1);
 console.log(d2); // prints [0, 1, 2, 3, 4, 5, 6, 7]
                     </code></pre>
@@ -436,7 +459,7 @@ greeter.sayHi();
 
 
                 <section>
-                    <h2>Classes & Modules</h2>
+                    <h3>Create a simple logging class</h3>
 					<pre><code data-trim contenteditable>
 export class Logger {
     constructor(name = 'logger', printDate = false){
@@ -467,6 +490,13 @@ export class Logger {
     }
 }
                     </code></pre>
+                    <p>Notice the 'export' keyword</p>
+                    <p>Constructor with default params</p>
+                    <p>Short hand method syntax</p>
+                </section>
+
+                <section>
+                    <h3>Import the Class</h3>
 					<pre><code data-trim contenteditable>
 import { Logger } from './module-demo/logger';
 import { merge, uppercaseArray, evens } from  './module-demo/arrays-utils';
@@ -487,6 +517,8 @@ logger.error("I'm an error!");
 <!--<script type="module" src="src/app.js"></script>-->
                     </code></pre>
 
+                    <p>Notice the 'import { } from' syntax</p>
+                    <p>You only specify app.js in html</p>
                 </section>
 
                 <section>
@@ -513,11 +545,12 @@ class Animal {
 }
                         </code></pre>
                     </section>
+
                     <section>
                         <p>Extended your classes</p>
-                        <pre><code data-trim contenteditable>
+                        <pre><code data-trim contenteditable style="max-height: 1200px">
 class Bird extends Animal {
-    // Implicit constructor that itself has an implicit super() call if not specified
+    // Implicit constructor - an implicit super() call if not specified
     constructor(colour, size = "Tiny") {
         this.type = "Bird";
         this.colour = colour;
@@ -546,6 +579,7 @@ class Labrador extends Dog {
 }
                         </code></pre>
                     </section>
+
                     <section>
                        <p>Using your classes</p>
                        <pre><code data-trim contenteditable>
@@ -581,14 +615,24 @@ console.log(p.toString());
                         <li>FF and Chrome with the experimental flag turned on enables the most features</li>
                         <li>Use a Transpiler to compile down to ES5. (see demo) - Google has one <a href="https://github.com/google/traceur-compiler" target="_blank">traceur-compiler</a></li>
                         <li>Use a ECMAScript compiler!</li>
-                        <li>Look at Dart or TypeScript as alternatives until its supported better</li>
+                        <li>Look at Dart or TypeScript as alternatives</li>
                         <li>AngularJS 2.0 (2015) will use it by default</li>
                     </ul>
 				</section>
 
 				<section>
-					<h1>Questions?</h1>
-				</section>
+
+                    <h3>Thanks for listening</h3>
+
+                    <br />
+
+                    <h1>Questions?</h1>
+
+                    <br />
+
+                    <small>Created by <a href="https://github.com/jamesmorgan" target="_blank">James Morgan</a> / <a href="http://twitter.com/jimbob_87" target="_blank">@jimbob_87</a></small>
+
+                </section>
 
 			</div>
 
