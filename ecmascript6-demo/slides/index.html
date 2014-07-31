@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>ECMAScript 6 - The Future of JavaScript</title>
+		<title>ECMAScript 6 - The Future of JavaScript, Syntax Changes with examples</title>
 
 		<meta name="description" content="ECMAScript 6 - The Future of JavaScript - Presentation">
 		<meta name="author" content="James Morgan - http://www.morgan-design.com">
@@ -45,7 +45,7 @@
 
                 <section>
 					<h1>ECMAScript 6</h1>
-					<h3>The Future of JavaScript</h3>
+					<h4>The Future of JavaScript, Syntax Changes with examples</h4>
 					<p>
 						<small>Created by <a href="https://github.com/jamesmorgan" target="_blank">James Morgan</a> / <a href="http://twitter.com/jimbob_87" target="_blank">@jimbob_87</a></small>
 					</p>
@@ -72,6 +72,10 @@
                         <!--Javascript is basically ECMAScript at it's core but builds upon it. Languages such as Actionscript, Javascript, JScript all use ECMAScript as its core.-->
                     <!--</blockquote>-->
                     <aside class="notes">
+                        Its basically a language specification with implementations such as ActionScript, JavaScript, GnomeJS.
+                        <br />
+                        These languages are based on ECAMScript and have it at its core.
+                        <br />
                         Stackoverflow - Javascript is basically ECMAScript at it's core but builds upon it. Languages such as Actionscript, Javascript, JScript all use ECMAScript as its core.
                     </aside>
 				</section>
@@ -82,7 +86,8 @@
                     <h3>Libraries</h3>
                     <ul style="width: 600px">
                         <li>JavaScript (jQuery, Backbone, Angular)</li>
-                        <li>Adobe Flex (ActionScript)</li>
+                        <li>Node (Npm, Mongoose, Express)</li>
+                        <li>Adobe Flex (Flex 3/4)</li>
                         <li>GJS - Gnome JS</li>
                     </ul>
 
@@ -112,6 +117,8 @@
                     <!--</blockquote>-->
                     <aside class="notes">
                         I've heard people say that CoffeeScript is the only thing that makes it bearable.
+                        <br />
+                        Theirs even websites about JavaScript bashing.
                     </aside>
                     <img src="images/javascript_the_good_parts.jpg">
                 </section>
@@ -119,7 +126,7 @@
 				<section>
                     <h3>Whats New IN ES 6 (Harmony)</h3>
                     <p>
-                        Nothing unless you want it to be! - ES6 is fully compatible with ES5, you don't have to change a thing!
+                        Nothing unless you want it to be! <br /> ES6 is fully compatible with ES5.
                     </p>
                     <p>
                         Lots of sugar via new syntax changes.
@@ -133,7 +140,14 @@
                             <li>IE11 (7/66 features) - completely useless!</li>
                         </ul>
                     </p>
-				</section>
+                    <aside class="notes">
+                        Compatibility is understandable since its the browser which is going to be most affected.
+                        <br />
+                        Its backwards compatible so you don't have to change a thing.
+                        <br />
+                        Lots of syntax cheats and short hands but also language features which I will come on to.
+                    </aside>
+                </section>
 
 				<!--<section data-markdown>-->
 					<!--<script type="text/template">-->
@@ -198,13 +212,16 @@
 
                 <section>
                     <h2>New Features</h2>
+                    <aside class="notes">
+                        I'll run through these quickly because I've got examples of most of them later on.
+                    </aside>
                     <ul>
                         <li>Shorthand object literals</li>
                         <li>Inbuilt String templating</li>
                         <li>Default method params & var args</li>
-                        <li>First class types of <code>Map</code> and <code>Set</code> not just Arrays and Functions</li>
-                        <li><code>let</code> - better variable scoping</li>
-                        <li><code>const</code> - readonly variable</li>
+                        <li>New first class types of <code>Map</code> and <code>Set</code> not just Arrays and Functions</li>
+                        <li>keyword <code>let</code> - better variable scoping</li>
+                        <li>keyword <code>const</code> - readonly variable</li>
                         <li><code>=></code> - Fat arrow syntax - lexical scoped <code>functions</code></li>
                         <li>Generators & Iterators - <code>yield</code> keyword</li>
                         <li>Object deconstruction/swapping</li>
@@ -212,6 +229,10 @@
                         <li>Inbuilt Promises</li>
                         <li>Object.observe() - this will change lots of frameworks</li>
                     </ul>
+
+                    <aside class="notes">
+                        I'll run through these quickly because I've got examples of most of them later on.
+                    </aside>
                 </section>
 
                 <section>
@@ -221,7 +242,7 @@
 				<section>
 					<h2>Object literals & String templates</h2>
 					<pre><code data-trim contenteditable>
-// Old school ECMAScript 5+ version
+// Old school ES 5 version
 var home = "Germany";
 var away = "Argentina";
 var oldGame = {
@@ -230,10 +251,15 @@ var oldGame = {
 };
 console.log(`Winners ${oldGame.home}`); // prints 'Winners Germany'
 
-// New ECMAScript 6 way
+// New ES 6 way
 var newGame = { home, away }; // fields are given implicit values
 console.log(`Losers ${newGame.away}`); // prints 'Losers Argentina'
 					</code></pre>
+                    <aside class="notes">
+                        Old and new way of creating object
+                        <br />
+                        String templates using back-ticks and $ bracket for string interpolation
+                    </aside>
 				</section>
 
                 <section>
@@ -260,6 +286,7 @@ console.log(varargs("a")); // prints '0'
 
                 <section>
                     <h2>Sets & Maps</h2>
+                    <h4>New actual types for Set and Map</h4>
 					<pre><code data-trim contenteditable>
 var s = new Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
 console.log(s); // prints [1, 3, 4, 2, 17]
@@ -284,11 +311,12 @@ var colours = ["red", "blue"];
 colours.createDate = Date.now()
 for (var name in colours) {
     console.log(name); // "0, 1, createDate" (the property name)
-    // usually fix this with
-    //if(colours.hasOwnProperty(name)){
-    //   console.log(colours[name]); // prints "red, blue", DateObj
-    //}
+
+    if(colours.hasOwnProperty(name)){ // usually fix this with
+       console.log(colours[name]); // prints "red, blue", DateObj
+    }
 }
+// use 'let' and 'of' in ES6
 for (let word of colours) {
     console.log(word); // "red, blue" (only the values)
 }
@@ -297,10 +325,24 @@ for (let word of colours) {
                     <aside class="notes">
                         Old School way and new way, notice the use of  'let' and 'of'
                     </aside>
+                </section>
 
+                <section>
                     <h2>Bet scoping with let</h2>
                     <p>
-                        Using let makes it easier to create correctly scoped closures and for loops
+                        ES5 scoping issue
+                    </p>
+					<pre><code data-trim contenteditable>
+var a = "smalls";
+{
+    var a = "biggy";
+    console.log(a); // prints out "biggy"
+}
+console.log(a); // prints out "biggy"
+                    </code></pre>
+
+                    <p>
+                        ES6 - Using let makes it easier to create correctly scoped closures and for loops
                     </p>
 					<pre><code data-trim contenteditable>
 let a = "smalls";
@@ -308,12 +350,12 @@ let a = "smalls";
     let a = "biggy";
     console.log(a); // prints out "biggy"
 }
-console.log(a); // prints out "smalls" - would print out "biggy" with var
+console.log(a); // prints out "smalls"
                     </code></pre>
                 </section>
 
                 <section>
-                    <h2>Numeric Literals</h2>
+                    <h2>New Literal Types</h2>
 					<pre><code data-trim contenteditable>
 var binary = [0b0, 0b1, 0b11];
 console.log(`Binary: ${binary}`); // [0, 1, 3]);
@@ -330,7 +372,7 @@ console.log(`Octal: ${octal}`); //([0, 1, 8, 63]);
                         An Iterator is an object that knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.
                     </blockquote>
                     <blockquote>
-                        Each call to the generator-iterator's next() method will execute the body of the function up to the next yield expression and return its result
+                        Each call to the generators next() method will execute the body of the function up to the next 'yield' expression and return its result
                     </blockquote>
 					<pre><code data-trim contenteditable>
 function* count() {
@@ -345,6 +387,10 @@ console.log(counter.next()); // {value: 3, done: false}
 console.log(counter.next()); // {value: undefined, done: true}
                     </code></pre>
                     <p>Notice function*</p>
+
+                    <aside class="notes">
+                        I'm undecided about the chosen notation but think yield could be powerful.
+                    </aside>
                 </section>
 
 
@@ -355,25 +401,23 @@ console.log(counter.next()); // {value: undefined, done: true}
                         Generators enable lazy computation of sequences, with items calculated on-demand as they are needed.
                     </blockquote>
 					<pre><code data-trim contenteditable>
-function fibonacci(){
-    var fn1 = 1;
-    var fn2 = 1;
-    while (1){
-        var current = fn2;
-        fn2 = fn1;
-        fn1 = fn1 + current;
-        yield current;
+function* idMaker(){
+    var index = 0;
+    while(true){
+        yield index++;
     }
 }
-var sequence = fibonacci();
-print(sequence.next()); // 1
-print(sequence.next()); // 1
-print(sequence.next()); // 2
-print(sequence.next()); // 3
-print(sequence.next()); // 5
-print(sequence.next()); // 8
-print(sequence.next()); // 13
+
+var gen = idMaker();
+
+console.log(gen.next().value); // '0'
+console.log(gen.next().value); // '1'
+console.log(gen.next().value); // '2'
                     </code></pre>
+
+                    <aside class="notes">
+                        Not all generators terminate. Infinite sequences are possible.
+                    </aside>
                 </section>
 
 
@@ -418,12 +462,16 @@ function joiner(a, b) {
 var flattened = [[0, 1], [2, 3], [4, 5]].reduce(joiner);
 console.log(flattened); // flattened is [0, 1, 2, 3, 4, 5]
                     </code></pre>
+
+                    <aside class="notes">
+                        I find these similar to the filters in AngularJS if anyone knows them
+                    </aside>
                 </section>
 
 
                 <section>
                     <h2>Array Spreading</h2>
-                    <p>Allows combine multiple arrays more easily.</p>
+                    <p>Short hand for combine multiple arrays.</p>
                     <p>Notice the ... notation</p>
 					<pre><code data-trim contenteditable>
 var a1 = [1];
